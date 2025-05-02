@@ -1,28 +1,71 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# Testes Automatizados com Cypress
 
-👋 Seja bem-vindo(a)!
+Este repositório contém a automação de testes da aplicação fictícia "Central de Atendimento ao Cliente TAT", desenvolvida como parte do curso da **Escola Talking About Testing**. Os testes foram escritos com Cypress e cobrem cenários de formulários, seleção de produtos, interações com checkboxes e radio buttons, upload de arquivos e comportamento de links externos.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+## 📋 Pré-requisitos
 
-## O que você vai aprender?
+Antes de iniciar, você precisa ter instalado em sua máquina:
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+- [Node.js](https://nodejs.org/) (versão recomendada: LTS)
+- [npm](https://www.npmjs.com/) (gerenciador de pacotes do Node)
+- [Git](https://git-scm.com/) (para clonar o repositório)
 
-## Vamos começar?
+## 🛠️ Instalação
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/CarolinaCamposs/cypress-do-zero-a-nuvem.git
+   ```
 
-___
+2. Acesse a pasta do projeto:
+   ```bash
+   cd cypress-do-zero-a-nuvem
+   ```
 
-Este é um curso da **Escola Talking About Testing**.
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+## ▶️ Como rodar os testes
+
+### Cypress Runner (modo interativo)
+Para abrir a interface gráfica do Cypress:
+
+```bash
+npx cypress open
+```
+
+Escolha o navegador e clique no arquivo de teste desejado.
+
+### Simular viewport de dispositivo móvel
+
+```bash
+npm run cy:mobile
+```
+
+## 🧪 Funcionalidades testadas
+
+- Verificar título da aplicação
+- Preencher e limpar campos de formulário
+- Validar mensagens de sucesso e erro
+- Validar formatos inválidos de e-mail e telefone
+- Validar campos obrigatórios e condicionais
+- Usar comandos customizados (Cypress.Commands.add)
+- Testes com elementos <select> (combobox)
+    - Seleção de opções por texto visível
+    - Seleção por atributo value
+    - Seleção por índice
+- Testes com campos do tipo radio e checkbox
+    - Marcação de cada tipo de atendimento usando .check() e .each()
+    - Marcação e desmarcação de checkboxes com .check() e .uncheck()
+- Selecionar arquivos com .selectFile(), inclusive usando:
+    - Caminho direto da fixture
+    - Simulação de drag and drop
+    - Fixture com alias
+- Validar abertura de links em nova aba e navegar programaticamente
+- Simular diferentes tamanhos de viewport (como dispositivos móveis)
+
+---
+
+> Este é um curso da **Escola Talking About Testing**.
