@@ -44,27 +44,16 @@ Escolha o navegador e clique no arquivo de teste desejado.
 npm run cy:mobile
 ```
 
-## 🧪 Funcionalidades testadas
+## Funcionalidades testadas
 
-- Verificar título da aplicação
-- Preencher e limpar campos de formulário
-- Validar mensagens de sucesso e erro
-- Validar formatos inválidos de e-mail e telefone
-- Validar campos obrigatórios e condicionais
-- Usar comandos customizados (Cypress.Commands.add)
-- Testes com elementos <select> (combobox)
-    - Seleção de opções por texto visível
-    - Seleção por atributo value
-    - Seleção por índice
-- Testes com campos do tipo radio e checkbox
-    - Marcação de cada tipo de atendimento usando .check() e .each()
-    - Marcação e desmarcação de checkboxes com .check() e .uncheck()
-- Selecionar arquivos com .selectFile(), inclusive usando:
-    - Caminho direto da fixture
-    - Simulação de drag and drop
-    - Fixture com alias
-- Validar abertura de links em nova aba e navegar programaticamente
-- Simular diferentes tamanhos de viewport (como dispositivos móveis)
+- Preenchimento de campos obrigatórios e envio de formulário
+- Validação de campos com erros
+- Uso de comandos customizados para otimizar a escrita de testes
+- Seleção de produtos via combobox
+- Interações com radio buttons e checkboxes
+- Upload de arquivos com selectFile, incluindo drag-and-drop e alias de fixture
+- Testes com verificação e manipulação de atributos de links
+- Simulação de diferentes tamanhos de tela (viewport)
 
 ---
 
