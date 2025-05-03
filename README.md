@@ -2,6 +2,11 @@
 
 Este repositório contém a automação de testes da aplicação fictícia "Central de Atendimento ao Cliente TAT", desenvolvida como parte do curso da **Escola Talking About Testing**. Os testes foram escritos com Cypress e cobrem cenários de formulários, seleção de produtos, interações com checkboxes e radio buttons, upload de arquivos e comportamento de links externos.
 
+[![End-to-end tests](https://github.com/CarolinaCamposs/cypress-do-zero-a-nuvem/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/CarolinaCamposs/cypress-do-zero-a-nuvem/actions/workflows/ci.yml)
+
+Esse projeto roda testes automatizados com GitHub Actions...
+
+
 ## 📋 Pré-requisitos
 
 Antes de iniciar, você precisa ter instalado em sua máquina:
