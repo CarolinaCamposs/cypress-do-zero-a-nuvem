@@ -8,7 +8,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.title()
       .should('eq', 'Central de Atendimento ao Cliente TAT')
   })
-  Cypress._.times(2, () => {
+  Cypress._.times(1, () => {
     it('preenche os campos obrigatórios e envia o formulário', () => {
       cy.clock()
       cy.get('#firstName').type('Carolina')
@@ -189,7 +189,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('be.visible')
   })
 
-  it.only('exibe e oculta as mensagens de sucesso e erro usando .invoke()', () => {
+  it('exibe e oculta as mensagens de sucesso e erro usando .invoke()', () => {
     cy.get('.success')
       .should('not.be.visible')
       .invoke('show')
@@ -206,10 +206,22 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('not.be.visible')
   })
 
-  it.only('preenche o campo da área de texto usando o comando invoke', () => {
+  it('preenche o campo da área de texto usando o comando invoke', () => {
     cy.get('#firstName').invoke('val', 'Carolina')
       .should('have.value', 'Carolina')
   })
 
+  it('faz uma requisição HTTP', () => {
+    cy.request('https://cac-tat-v3.s3.eu-central-1.amazonaws.com/index.html')
+      .as('get')
+      .its('status')
+      .should('be.equal', 200)
+    cy.get('@get')
+      .its('statusText')
+      .should('be.equal', 'OK')
+    cy.get('@get')
+      .its('body')
+      .should('include', 'CAC TAT')
+  })
 })
 
