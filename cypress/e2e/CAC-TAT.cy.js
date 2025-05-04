@@ -223,5 +223,11 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .its('body')
       .should('include', 'CAC TAT')
   })
+  
+  it.only('exibe o gato escondido na aplicação (desafio final)', () => {
+    cy.get('#cat')
+      .invoke('show')
+      .should('be.visible')
+  })
 })
 
