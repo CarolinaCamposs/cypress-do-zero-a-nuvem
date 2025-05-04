@@ -22,7 +22,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     })
   })
 
-  it.only('exibe mensagem de errro ao submeter o formulário em um email com formatação inválida', () => {
+  it('exibe mensagem de errro ao submeter o formulário em um email com formatação inválida', () => {
     cy.clock()
     cy.get('#firstName').type('Carolina')
     cy.get('#lastName').type('Campos')
@@ -42,7 +42,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('have.value', '')
   })
 
-  it.only('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
+  it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
     cy.clock()
     cy.get('#firstName').type('Carolina')
     cy.get('#lastName').type('Campos')
@@ -85,7 +85,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.error').should('be.visible')
   })
 
-  it.only('envia o formuário com sucesso usando um comando customizado1', () => {
+  it('envia o formuário com sucesso usando um comando customizado1', () => {
     cy.clock()
     cy.fillMandatoryFieldsAndSubmit()
 
@@ -187,6 +187,28 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
     cy.contains('h1', 'CAC TAT - Política de Privacidade')
       .should('be.visible')
+  })
+
+  it.only('exibe e oculta as mensagens de sucesso e erro usando .invoke()', () => {
+    cy.get('.success')
+      .should('not.be.visible')
+      .invoke('show')
+      .should('be.visible')
+      .and('contain', 'Mensagem enviada com sucesso.')
+      .invoke('hide')
+      .should('not.be.visible')
+    cy.get('.error')
+      .should('not.be.visible')
+      .invoke('show')
+      .should('be.visible')
+      .and('contain', 'Valide os campos obrigatórios!')
+      .invoke('hide')
+      .should('not.be.visible')
+  })
+
+  it.only('preenche o campo da área de texto usando o comando invoke', () => {
+    cy.get('#firstName').invoke('val', 'Carolina')
+      .should('have.value', 'Carolina')
   })
 
 })
